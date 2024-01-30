@@ -1,10 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Poiret+One&display=swap');
+/* font-family: 'Poiret One', cursive;*/
+
 :root {
     /* colors */
-    --primary-color: #dfdfe2;
-    --secondary-color: #ffffff;
-    --app-background-color: #4d4d62;
-    --background-color: #1b1b32;
-    --foreground-color: #3b3b4f;
+    --primary-color: rgba(7, 81, 1);
+    --secondary-color: #8a7028;
+    --app-background-color: #f3b60e;
+    --background-color: rgba(7, 81, 1, 0.519);
+    --foreground-color: rgb(246, 222, 168);;
     --highlight-color: #f1be32;
   
     /* font sizes */
@@ -12,8 +15,8 @@
     font-size: var(--root-font-size);
   
     /* font-families */
-    --font-headline: "Roboto Mono", monospace;
-    --font-family: "Lato", sans-serif;
+    --font-headline: "Lato", sans-serif;
+    --font-family: 'Poiret One', cursive;
   }
   
   *,
