@@ -98,6 +98,7 @@ const playSong = (id) => {
     userData.currentSong = song;
     playButton.classList.add("playing");
   
+    highlightCurrentSong();
     audio.play();
 };
 
@@ -109,7 +110,6 @@ const pauseSong = () => {
 };
 
 const playNextSong = () => {
-
     if (userData?.currentSong === null) {
         playSong(userData?.songs[0].id);
       } else {
@@ -130,9 +130,18 @@ const playPreviousSong = () =>{
     }
 };
 
+const setPlayerDisplay = () => {
+    const playingSong = document.getElementById("player-song-title");
+    const songArtist = document.getElementById("player-song-artist");
+    const currentTitle = userData?.currentSong?.title;
+    const currentArtist = userData?.currentSong?.artist;
+};
+
 const highlightCurrentSong = () => {
     const playlistSongElements = document.querySelectorAll(".playlist-song");
-    const songToHighlight = document.getElementById(`song-${userData?.currentSong?.id}`);
+    const songToHighlight = document.getElementById(
+        `song-${userData?.currentSong?.id}`
+    );
 
     playlistSongElements.forEach((songEl) => {
         songEl.removeAttribute("aria-current");
@@ -178,6 +187,21 @@ playButton.addEventListener("click", () => {
 });
 
 pauseButton.addEventListener("click",  pauseSong);
+
 nextButton.addEventListener("click", playNextSong);
+
 previousButton.addEventListener("click", playPreviousSong);
+
+userData?.songs.sort((a,b) => {
+    if (a.title < b.title) {
+      return -1;
+    }
+  
+    if (a.title > b.title) {
+      return 1;
+    }
+  
+    return 0;
+});
+
 renderSongs(userData?.songs);
